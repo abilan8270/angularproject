@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="form">
+      <div class="sign-in-section">
+        <h1>Log in</h1>
+        <form [formGroup]="loginForm" (submit)="onsubmit()">
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="Email" formControlName="email"   placeholder="Enter the Email"/>
+            <span *ngIf="!email?.valid && (email?.touched || email?.dirty)">
+              <span class="text-danger" *ngIf="email?.errors?.['email']">
+                  Email pattern is worng 
+              </span>
+              <span class="text-danger" *ngIf="email?.errors?.['required']">
+                  Email invalid 
+              </span></span>
+          </div>
+          <div class="form-field">
+            <label for="password">Password</label>
+            <input id="password" type="password" placeholder="Password" />
+          </div>
+          <div class="form-options">
+            <div class="checkbox-field">
+              <input id="rememberMe" type="checkbox" class="checkbox" />
+              <label for="rememberMe">Remember Me</label>
+            </div>
+            <a href="#">Forgot Password?</a>
+          </div>
+          <div class="form-field">
+            <a routerLink="home"><input type="submit" [disabled]="!loginForm.valid" class="btn btn-signin" value="Submit" /></a>
+          </div>
+          <div class="form-field">
+            <a routerLink="form"><input type="submit" class="btn btn-signin" value="Regster"/></a>
+          </div>
+        </form>
+        <div class="links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a> 
+        </div>
+      </div>
+    </div>
+  </div>

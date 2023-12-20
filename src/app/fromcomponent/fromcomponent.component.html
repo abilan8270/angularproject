@@ -1,0 +1,125 @@
+
+    <nav class="nav-container">
+        <div class="logo">
+          <div class="circle"></div>
+          <h2>ABILAN</h2>
+        </div>
+      </nav>
+      <div style="justify-content: center;">
+    <div class="form-container card" style="width: 50% ;justify-content: center;margin-left: auto !important;margin-right: auto !important;">
+      <div class="section-header" style="display:inline;">
+        <p class="secondary-text">START FOR FREE</p>
+        <h1 class="primary-heading" style="font-size: 25px;">
+          Create a new account  Already A Member?
+        </h1>
+        <a [routerLink]="['']">Login</a>
+      </div>
+      <form [formGroup]="contactForm" (submit)="onsubmit()" class="form">
+        <div class="form-input">
+          <input type="text" name="firstname" id="firstname" formControlName="firstName" placeholder="Enter the FirstName" />
+          <span class="text-danger"  *ngIf="!firstname?.valid && (firstname?.touched || firstname?.dirty)">
+            <span class="text-danger" *ngIf="firstname?.errors?.['minlength']">
+                firstName minimum 5 charater 
+            </span>
+            <span class="text-danger" *ngIf="firstname?.errors?.['required']">
+                first Name invalid 
+            </span>
+        </span>
+        <input type="text" name="firstname" id="firstname" formControlName="lastName" placeholder="Enter the FirstName" />
+          <span class="text-danger" *ngIf="!lastname?.valid && (lastname?.touched || lastname?.dirty)">
+            <span class="text-danger" *ngIf="lastname?.errors?.['maxlength']">
+                LastName minimum 5 charater 
+            </span>
+            <span class="text-danger" *ngIf="lastname?.errors?.['required']">
+                LastName invalid 
+            </span>
+        </span>
+        <input type="text" name="age" id="age" formControlName="age" placeholder="Enter the Age">
+        <span *ngIf="!age?.valid && (age?.touched || age?.dirty)">
+            <span class="text-danger" *ngIf="age?.errors?.['pattern']">
+                Number onely allowed 
+            </span>
+            <span class="text-danger" *ngIf="age?.errors?.['required']">
+                Age invalid 
+            </span>
+        </span>
+        <input type="text" name="email" id="email" formControlName="email" placeholder="Enter the Email">
+        <span *ngIf="!email?.valid && (email?.touched || email?.dirty)">
+            <span class="text-danger" *ngIf="email?.errors?.['email']">
+                Email pattern is worng 
+            </span>
+            <span class="text-danger" *ngIf="email?.errors?.['required']">
+                Email invalid 
+            </span>
+        </span>
+        <input type="password" name="password" id="password" formControlName="password" placeholder="Enter the password">
+        <span *ngIf="!password?.valid && (password?.touched || password?.dirty)">
+            <span class="text-danger" *ngIf="password?.errors?.['pattern']">
+                password pattern is worng 
+            </span>
+            <span class="text-danger" *ngIf="password?.errors?.['required']">
+                password invalid 
+            </span>
+        </span>
+        <input type="text" name="phNumber" id="phNumber" formControlName="phoneNumber" placeholder="Enter the phoneNumber">
+        <span *ngIf="!phnum?.valid && (phnum?.touched || phnum?.dirty)">
+            <span class="text-danger" *ngIf="phnum?.errors?.['pattern']">
+                Start in indian Number  
+            </span>
+            <span class="text-danger" *ngIf="email?.errors?.['required']">
+                phoneNumber invalid 
+            </span>
+        </span>
+        <div class="form-inline">
+        <label for="">Gender</label><br>
+        <input type="radio" value="Male" formControlName="gender" value="Male">&nbsp;
+        <label for="">Male</label>&nbsp;&nbsp;
+        <input type="radio" value="female" formControlName="gender">&nbsp;<label for="">Female</label>&nbsp;
+         </div>
+         <div form-inline>
+            <label for="">marriagestatus</label><br>
+            <input type="checkbox" value="single" id="marriagestatus" formControlName="marriagestatus">&nbsp;<label for="">single</label>&nbsp;&nbsp;
+            <input type="checkbox" value="merried" name="marriagestatus" id="marriagestatus" formControlName="marriagestatus">&nbsp;<label for="">Married</label>&nbsp;
+            <span *ngIf="!marriagestatus?.valid && (marriagestatus?.touched || marriagestatus?.dirty)">
+                <span class="text-danger" *ngIf="marriagestatus?.errors?.['required']">
+                    marriagestatus invalid 
+                </span>
+            </span>
+         </div>
+        <label for="">village</label>
+        <select name="city" id="city"  class="form-control" formControlName="village">
+            <option value="1" selected="select"> --select--</option>
+            <option value="2" >ThimmanayacanPatty</option>
+            <option value="3" >Valapadi</option>
+            <option value="4" >Thambaram</option>
+            <option value="5" >Bavani</option>
+            <option value="6" >sivkagakai</option>
+        </select>
+        <span *ngIf="!village?.valid && (village?.touched || village?.dirty)">
+            <span  class="text-danger" *ngIf="village?.errors?.['required']">
+                village invalid 
+            </span>
+        </span>
+        <label for="">city</label>
+        <select name="clan" id="clan" class="form-control" formControlName ="city">
+            <option value="1" selected="selected"> --select option--</option>
+            <option value="2" >Namakkal</option>
+            <option value="3" >Selam</option>
+            <option value="4" >Chennai</option>
+            <option value="5" >Erodu</option>
+            <option value="6" >Madurai</option>
+        </select>
+        <span *ngIf="!city?.valid && (city?.touched || city?.dirty)">
+            <span *ngIf="city?.errors?.['required']">
+                city invalid 
+            </span>
+        </span>
+          <div class="btn-input">
+
+            <a [routerLink]="['']"><button type="submit"  [disabled]="!contactForm.valid" class="btn btn-primary form-control" >Create account</button></a>
+     
+          </div>
+        </div>
+      </form>
+    </div>
+</div>
